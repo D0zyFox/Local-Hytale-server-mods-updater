@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Source folder (CurseForge mods)
+A="/home/hryan/.local/share/bottles/bottles/Curseforge/drive_c/users/steamuser/AppData/Roaming/UserData/mods/"
+
+# Server details
+SERVER_USER="hryan"
+SERVER_HOST="192.168.0.29"
+B="/hytale/Server/mods/"   # Server mods folder
+
+# Log file
+LOG="/home/hryan/mod_sync_log.txt"
+
+echo "=== MOD SYNC SCRIPT ==="
+echo "Syncing A -> Server ($SERVER_HOST:$B)..."
+
+# Sync A -> B over SSH: update or add missing mods, delete anything on server that isn't in A
+rsync -av --delete -e ssh "$A" "${SERVER_USER}@${SERVER_HOST}:${B}"
+
+echo "Sync A -> Server complete."
+
+# Log the sync
+echo "[$(date)] Sync A -> Server complete." >> "$LOG"
+
