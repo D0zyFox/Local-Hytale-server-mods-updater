@@ -9,4 +9,6 @@ bash script for quickly updating mods that are local on your machine to your sel
 
 The script should remove out of date mods and add the up date date ones, when you update mods through curseforge you can simply run this script afterwards.
 
-more features coming later sill learning stuff \./
+more features coming later sill learning stuff 
+
+### \./
